@@ -10,10 +10,43 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+/**
+   * take a word (string) as an input
+   * make the input lowercase and trim
+   * 
+   * for loop to check:
+   * if word starts with a consonant, remove the first letter, put it at the end, and add ay
+   * if word starts with 2 consonants, remove the first two letters, put them at the end and add ay
+   * if word starts with a vowel, add yay
+   * 
+   * array var that holds either consonants or vowels
+   * 
+   * ASSUMPTIONS
+   * vowels are a e i o u
+   * 
+   */
 
 const pigLatin = (word) => {
 
-  // Your code here
+  let inputWord = word.trim().toLowerCase();
+
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  for(let i=0; i< inputWord.length; i++); {
+
+    if(vowels.includes(inputWord[0])) {
+      let newWord = inputWord + 'yay'
+      return newWord
+    } else if(!vowels.includes(inputWord[0]) && !vowels.includes(inputWord[1])){
+        let newWord = inputWord.slice(2) + inputWord.slice(0, 2) + 'ay'
+        return newWord
+    } else {
+        let newWord = inputWord.slice(1) + inputWord.slice(0, 1) + 'ay'
+        return newWord
+    }
+  }
+
+
 
 }
 
